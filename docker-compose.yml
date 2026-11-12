@@ -1,0 +1,14 @@
+# Local database for the demo (./demo.sh starts it for you).
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: nesswell
+      POSTGRES_PASSWORD: nesswell
+      POSTGRES_DB: nesswell
+    ports:
+      - "5433:5432"   # 5433 so it won't clash with a Postgres you may already run
+    volumes:
+      - nesswell-db:/var/lib/postgresql/data
+volumes:
+  nesswell-db:
